@@ -27,7 +27,7 @@ commands:
           command: |
             SUCCESS=$(curl --insecure  https://kvdb.io/Mm8TwjSja4eccfm28mnTsM/migration_<< parameters.workflow_id >>)
             echo ${SUCCESS}
-            if(${SUCCESS}==1) 
+            if [[ ${SUCCESS} == 1 ]] 
             then
               cd ~/project/backend
               npm install
@@ -357,7 +357,7 @@ jobs:
             STACKS=($(aws cloudformation list-stacks --query "StackSummaries[*].StackName" \
                     --stack-status-filter CREATE_COMPLETE --no-paginate --output text)) 
             echo Stack names: "${STACKS[@]}"
-            if [ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ] && [ "${OldWorkflowID}" != "" ]
+            if [[ "${CIRCLE_WORKFLOW_ID:0:7}" != "${OldWorkflowID}" ]] && [[ "${OldWorkflowID}" != "" ]]
             then
               echo "--------------------Delete Confirmed--------------------"
               echo ${OldWorkflowID}
