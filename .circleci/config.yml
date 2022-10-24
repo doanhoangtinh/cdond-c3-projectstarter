@@ -12,8 +12,8 @@ commands:
           when: on_fail
           command: |
             aws s3 rm s3://udapeople-<< parameters.workflow_id >> --recursive
-            aws cloudformation delete-stack --stack-name myFEStack-<< parameters.workflow_id >>
-            aws cloudformation delete-stack --stack-name myBEStack-<< parameters.workflow_id >>
+            aws cloudformation delete-stack --stack-name udapeople-fe-<< parameters.workflow_id >>
+            aws cloudformation delete-stack --stack-name udapeople-be-<< parameters.workflow_id >>
 
   revert-migrations:
     description: Revert the last migration if successfully run in the current workflow.
