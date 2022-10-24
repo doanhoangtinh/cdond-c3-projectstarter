@@ -380,7 +380,7 @@ workflows:
             - build-frontend
       - test-backend:
           requires:
-            - build-frontend
+            - build-backend
       - scan-backend:
           requires:
             - build-backend
