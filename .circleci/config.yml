@@ -206,6 +206,8 @@ jobs:
             if grep -q "has been executed successfully." ~/project/backend/migrations_dump.txt
             then
               curl https://kvdb.io/Mm8TwjSja4eccfm28mnTsM/migration_${CIRCLE_WORKFLOW_ID:0:7}  -d '1'
+            else
+              echo "Can't send migration status"
             fi
       - destroy-environment:
           workflow_id: "${CIRCLE_WORKFLOW_ID:0:7}"
