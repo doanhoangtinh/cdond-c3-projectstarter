@@ -326,7 +326,6 @@ jobs:
             # Fetch the Old workflow ID 
             aws cloudformation list-exports --query "Exports[?Name==\`WorkflowID\`].Value" --no-paginate --output text > ~/oldworkflowid.txt
             cat ~/oldworkflowid.txt
-            ls -l
       - persist_to_workspace:
           root: ~/
           paths:
