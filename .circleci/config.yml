@@ -279,6 +279,7 @@ jobs:
           name: Install dependencies
           command: |
             yum -y install curl
+            yum install -y nodejs
       - run:
           name: Backend smoke test.
           command: |
